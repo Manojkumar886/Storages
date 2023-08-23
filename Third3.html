@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User interaction</title>
+</head>
+<body>
+    <script>
+        let begin=()=>
+        {
+            hey={"foods":["html","css"]}
+            localStorage.setItem("menu",JSON.stringify(hey));
+            alert("Framework is initialized")
+        }
+        window.onload=begin
+
+        let adding=()=>
+        {
+            let hi=document.getElementById("item").value
+            var tmp=localStorage.getItem("menu")
+            console.log(tmp)
+            var yet=JSON.parse(tmp)
+            alert(yet)
+            alert(yet["foods"]+" before push")
+            yet["foods"].push(hi)
+            alert(yet["foods"]+" after push")
+            localStorage.setItem("menu",JSON.stringify(yet))
+            alert(hi+" has added to the menu")
+        }
+    </script>
+    <div align="center">
+        <input type="text" id="item" placeholder="Enter the item"/>
+        <button onclick="adding()" style="background-color: green;">Add</button>
+    </div>
+</body>
+</html>
